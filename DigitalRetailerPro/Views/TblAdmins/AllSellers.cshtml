@@ -1,0 +1,93 @@
+﻿@model IEnumerable<DigitalRetailerPro.Models.TblUsers>
+
+@{
+    ViewData["Title"] = "AllSellers";
+}
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DigitalRetailerPro</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="GetAvailableLaptop">Available Laptops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="index">Admins</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="AllUsers">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="AllCustomers">Customers</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="GetSoldLaptop">Sold Laptops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="AllSellers">Sellers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="Edit" asp-route-id="@ViewBag.id">Edit Profile</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<h1>Sellers</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,77 @@
+﻿@model DigitalRetailerPro.Models.TblUsers
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DigitalRetailerPro</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="TblUsers" asp-action="create">Register</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="TblUsers" asp-action="login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="TblAdmins" asp-action="login">Admin Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<h1>Login</h1>
+
+<h4>TblUsers</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Role" class="control-label"></label>
+                <select asp-for="Role" class="form-control">
+                    <option value="customer" class="form-control">Customer</option>
+                    <option value="seller" class="form-control">Seller</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+            @ViewBag.msg
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

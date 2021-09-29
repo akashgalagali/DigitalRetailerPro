@@ -1,0 +1,75 @@
+﻿@model DigitalRetailerPro.Models.TblLaptop
+
+@{
+    ViewData["Title"] = "AddNewlaptop";
+}
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DigitalRetailerPro</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="GetSoldLaptopOfSeller">Sold laptop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="AddNewlaptop">New laptop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="UnSoldLaptop">Laptops to be sold</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="Edit" asp-route-id="@ViewBag.id">Edit Profile</a>
+                    </li>
+
+                   
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<h1>Add New laptop </h1>
+
+<h4>TblLaptop</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddNewlaptop">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label"></label>
+                <input asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Configuration" class="control-label"></label>
+                <input asp-for="Configuration" class="form-control" />
+                <span asp-validation-for="Configuration" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Cost" class="control-label"></label>
+                <input asp-for="Cost" class="form-control" />
+                <span asp-validation-for="Cost" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Add new " class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
